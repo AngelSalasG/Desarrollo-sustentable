@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portada del Proyecto</title>
+
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Titillium Web', sans-serif;
+  min-height:100vh;
+  background: linear-gradient(54deg,#9164ff,#8bfff4);
+  color:#3c3f64;
+  overflow:hidden;
+overflow-y:auto;
+
+}
+
+/* 🌌 PARTÍCULAS */
+#particles{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:0;
+}
+
+/* 🏫 BARRA SUPERIOR */
+.header{
+  width:100%;
+  padding:15px 30px;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  position:relative;
+  z-index:2;
+}
+
+.header img{
+  height:60px;
+}
+
+/* 📦 CONTENIDO CENTRAL */
+.container{
+  position:relative;
+  z-index:2;
+  min-height:calc(100vh - 90px);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.portada{
+  background:rgba(255,255,255,0.95);
+  max-width:900px;
+  width:100%;
+  padding:50px 40px;
+  border-radius:15px;
+  box-shadow:0 20px 45px rgba(0,0,0,0.25);
+  text-align:center;
+  animation:fadeIn 1.2s ease forwards;
+  opacity:0;
+  transform:translateY(30px);
+}
+
+@keyframes fadeIn{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+h1{
+  font-size:2.4rem;
+  color:#9164ff;
+  margin-bottom:10px;
+}
+
+h2{
+  font-weight:normal;
+  margin-bottom:25px;
+}
+
+.info{
+  margin:10px 0;
+  font-size:1.05rem;
+}
+
+.info strong{
+  color:#9164ff;
+}
+
+/* 🚀 BOTÓN */
+.boton{
+  display:inline-block;
+  margin-top:30px;
+  padding:14px 26px;
+  background:#f5af19;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:8px;
+  transition:.3s;
+}
+
+.boton:hover{
+  background:#d99410;
+  transform:translateY(-4px);
+}
+
+@media(max-width:600px){
+  h1{font-size:1.7rem;}
+  .header img{height:45px;}
+  .portada{padding:30px 20px;}
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="header">
+  <img src="logo1.png" >
+  <img src="logo2.jpg" >
+</div>
+
+<div class="container">
+  <div class="portada">
+    <h1>Historia y Evolucion del Desarrollo sustentable</h1>
+    <h2>Linea del Tiempo</h2>
+
+    <p class="info"><strong>Universidad:</strong> Instituto Tecnologico de San Luis Potosi</p>
+    <p class="info"><strong>Materia:</strong> Desarrollo sustentable</p>
+    <p class="info"><strong>Docente:</strong> Rocha Diaz de Leon Marina</p>
+
+    <p class="info"><strong>Integrantes:</strong><br>
+      • Rangel Gaytan Angela Esmeralda<br>
+      • Covarrubias Martinez Raul Erwin<br>
+      • Martinez Rodriguez Dulce Sofia <br>
+      • Ibarra Hernandez Gabriela<br>
+      • Loredo Castro Dominic Jared<br>
+      • Salas Guerrero Luis Angel<br>
+      • Bautista Peña Melani Joselin<br>
+    </p>
+
+    <p class="info"><strong>Fecha:</strong> 5 de febrero de 2026</p>
+
+    <a href="linea del tiempo.html" class="boton">Ver Línea del Tiempo 🌎</a>
+  </div>
+</div>
+
+<script>
+// ✨ PARTÍCULAS DE FONDO
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particlesArray = [];
+
+class Particle{
+  constructor(){
+    this.x = Math.random()*canvas.width;
+    this.y = Math.random()*canvas.height;
+    this.size = Math.random()*2+1;
+    this.speedX = Math.random()*0.5-0.25;
+    this.speedY = Math.random()*0.5-0.25;
+  }
+  update(){
+    this.x += this.speedX;
+    this.y += this.speedY;
+
+    if(this.x<0 || this.x>canvas.width) this.speedX*=-1;
+    if(this.y<0 || this.y>canvas.height) this.speedY*=-1;
+  }
+  draw(){
+    ctx.fillStyle="rgba(255,255,255,0.6)";
+    ctx.beginPath();
+    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+    ctx.fill();
+  }
+}
+
+function init(){
+  particlesArray=[];
+  for(let i=0;i<120;i++){
+    particlesArray.push(new Particle());
+  }
+}
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particlesArray.forEach(p=>{
+    p.update();
+    p.draw();
+  });
+  requestAnimationFrame(animate);
+}
+
+init();
+animate();
+
+window.addEventListener("resize",()=>{
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  init();
+});
+</script>
+
+</body>
+</html>
