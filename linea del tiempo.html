@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Línea del Tiempo Ambiental</title>
+
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+
+<style>
+*,
+*::before,
+*::after { margin:0; padding:0; box-sizing:border-box; }
+
+body{
+  font: normal 16px/1.5 'Titillium Web', sans-serif;
+  background: linear-gradient(54deg,#9164ff,#8bfff4);
+  color:#3c3f64;
+  overflow-x:hidden;
+  padding-bottom:50px;
+}
+
+.timeline ul li{
+  list-style:none;
+  position:relative;
+  width:6px;
+  margin:0 auto;
+  padding-top:50px;
+  background:#fff;
+}
+
+.timeline ul li::after{
+  content:'';
+  position:absolute;
+  left:50%;
+  bottom:0;
+  transform:translateX(-50%) rotate(45deg);
+  width:20px;
+  height:20px;
+  background:#eee;
+}
+
+.timeline ul li > div{
+  position:relative;
+  width:400px;
+  padding:20px;
+  background:#fff;
+  box-shadow:4px 13px 30px rgba(0,0,0,0.15);
+  border-radius:5px;
+}
+
+.timeline ul li > div time{
+  position:absolute;
+  top:-15px;
+  left:20px;
+  background:#f5af19;
+  padding:5px 10px;
+  border-radius:5px;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.timeline ul li:nth-of-type(odd) > div{ left:45px; }
+.timeline ul li:nth-of-type(even) > div{ left:-445px; }
+
+.timeline ul li div{
+  visibility:hidden;
+  opacity:0;
+  transition:all .6s ease;
+}
+
+/* Animación desde la derecha */
+.timeline ul li:nth-of-type(odd) div{
+  transform:translate3d(120px, -20px, 0) rotate(6deg);
+}
+
+/* Animación desde la izquierda */
+.timeline ul li:nth-of-type(even) div{
+  transform:translate3d(-120px, -20px, 0) rotate(-6deg);
+}
+
+.timeline ul li.in-view div{
+  transform:none;
+  visibility:visible;
+  opacity:1;
+}
+
+
+/* 🔗 ESTILO PARA LOS TÍTULOS CON LINK */
+.timeline h3 a{
+  color:#3c3f64;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.timeline h3 a:hover{
+  color:#f5af19;
+}
+
+@media(max-width:900px){
+  .timeline ul li > div{ width:250px; }
+  .timeline ul li:nth-of-type(even) > div{ left:-295px; }
+}
+
+@media(max-width:600px){
+  body{ background:#8bfff4; }
+  .timeline ul li{ margin-left:20px; }
+  .timeline ul li > div{
+    width:calc(100vw - 91px);
+    left:45px !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="timeline"> 
+<ul>
+
+<li><div><time>50,000–10,000 a.C.</time><h3><a href="info1.html" target="_blank">Megafauna</a></h3><p>Extinciones masivas del Cuaternario.</p></div></li>
+
+<li><div><time>11,700 años atrás</time><h3><a href="info2.html" target="_blank">Fin Edad de Hielo</a></h3><p>Inicio del clima moderno.</p></div></li>
+
+<li><div><time>4000 a.C.</time><h3><a href="info3.html" target="_blank">Feng Shui</a></h3><p>Armonía entre ambiente y entorno.</p></div></li>
+
+<li><div><time>3000 a.C.</time><h3><a href="info4.html" target="_blank">Primer vertedero</a></h3><p>Registro en Creta.</p></div></li>
+
+<li><div><time>500 a.C.</time><h3><a href="info5.html" target="_blank">Gestión de residuos</a></h3><p>Leyes en Atenas.</p></div></li>
+
+<li><div><time>960–1279</time><h3><a href="info6.html" target="_blank">Dinastía Song</a></h3><p>Avances científicos y médicos.</p></div></li>
+
+<li><div><time>1366</time><h3><a href="info7.html" target="_blank">París</a></h3><p>Regulación de desechos.</p></div></li>
+
+<li><div><time>1388</time><h3><a href="info8.html" target="_blank">Inglaterra</a></h3><p>Prohibido contaminar ríos.</p></div></li>
+
+<li><div><time>1540</time><h3><a href="info9.html" target="_blank">Minería</a></h3><p>Contaminación en América del Sur.</p></div></li>
+
+<li><div><time>1730</time><h3><a href="info10.html" target="_blank">Khejadali</a></h3><p>Protección de árboles en India.</p></div></li>
+
+<li><div><time>1770–1830</time><h3><a href="info11.html" target="_blank">Revolución Industrial</a></h3><p>Gran impacto ambiental.</p></div></li>
+
+<li><div><time>1948</time><h3><a href="info12.html" target="_blank">UICN</a></h3><p>Nace la primera unión ambiental.</p></div></li>
+
+<li><div><time>1970</time><h3><a href="info13.html" target="_blank">Día de la Tierra</a></h3><p>Conciencia ambiental global.</p></div></li>
+
+<li><div><time>1972</time><h3><a href="info14.html" target="_blank">Estocolmo</a></h3><p>Educación ambiental.</p></div></li>
+
+<li><div><time>1976</time><h3><a href="info15.html" target="_blank">Capa de ozono</a></h3><p>Primera evidencia del agujero.</p></div></li>
+
+<li><div><time>1987</time><h3><a href="info16.html" target="_blank">Informe Brundtland</a></h3><p>Define desarrollo sostenible.</p></div></li>
+
+<li><div><time>1992</time><h3><a href="info17.html" target="_blank">Cumbre de Río</a></h3><p>Agenda ambiental global.</p></div></li>
+
+<li><div><time>1997</time><h3><a href="info18.html" target="_blank">Protocolo de Kioto</a></h3><p>Reducción de gases invernadero.</p></div></li>
+
+<li><div><time>2015</time><h3><a href="info19.html" target="_blank">Acuerdo de París</a></h3><p>Límite al calentamiento global.</p></div></li>
+
+<li><div><time>2023</time><h3><a href="info20.html" target="_blank">Cumbre ODS</a></h3><p>Impulso a metas 2030.</p></div></li>
+
+<li><div><time>2050</time><h3><a href="info21.html" target="_blank">Megaciudades</a></h3><p>Crecimiento urbano masivo.</p></div></li>
+
+</ul>
+</section>
+
+<script>
+var items = document.querySelectorAll(".timeline li");
+
+function isElementInViewport(el){
+  var rect = el.getBoundingClientRect();
+  return (
+    rect.top < window.innerHeight - 50 &&
+    rect.bottom > 50
+  );
+}
+
+function callbackFunc(){
+  for(var i = 0; i < items.length; i++){
+    if(isElementInViewport(items[i])){
+      items[i].classList.add("in-view");
+    } else {
+      items[i].classList.remove("in-view");
+    }
+  }
+}
+
+window.addEventListener("load", callbackFunc);
+window.addEventListener("scroll", callbackFunc);
+</script>
+
+<!-- 💬 BOTÓN FLOTANTE -->
+<div id="chatBtn">💬</div>
+
+<!-- 💬 VENTANA DEL CHAT -->
+<div id="chatBox">
+  <div id="chatHeader">Asistente Ambiental 🌎</div>
+  <div id="chatMessages"></div>
+  <div id="chatInputArea">
+    <input type="text" id="chatInput" placeholder="Escribe tu pregunta...">
+    <button onclick="sendMessage()">Enviar</button>
+  </div>
+</div>
+
+<style>
+#chatBtn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#9164ff;
+  color:white;
+  font-size:24px;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  box-shadow:0 5px 15px rgba(0,0,0,.3);
+  z-index:999;
+}
+
+#chatBox{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  width:300px;
+  max-height:400px;
+  background:white;
+  border-radius:10px;
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+  font-family:'Titillium Web', sans-serif;
+  z-index:999;
+}
+
+#chatHeader{
+  background:#9164ff;
+  color:white;
+  padding:10px;
+  text-align:center;
+  font-weight:bold;
+}
+
+#chatMessages{
+  flex:1;
+  padding:10px;
+  overflow-y:auto;
+  font-size:14px;
+}
+
+.msg{
+  margin:6px 0;
+  padding:6px 8px;
+  border-radius:6px;
+  max-width:85%;
+}
+
+.user{ background:#8bfff4; align-self:flex-end; }
+.bot{ background:#f1f1f1; }
+
+#chatInputArea{
+  display:flex;
+  border-top:1px solid #ddd;
+}
+
+#chatInput{
+  flex:1;
+  border:none;
+  padding:8px;
+  outline:none;
+}
+
+#chatInputArea button{
+  background:#f5af19;
+  border:none;
+  padding:8px 12px;
+  cursor:pointer;
+  color:white;
+}
+</style>
+
+<script>
+const chatBtn = document.getElementById("chatBtn");
+const chatBox = document.getElementById("chatBox");
+const chatMessages = document.getElementById("chatMessages");
+
+chatBtn.onclick = () => {
+  chatBox.style.display = chatBox.style.display === "flex" ? "none" : "flex";
+};
+
+function addMessage(text, sender){
+  const msg = document.createElement("div");
+  msg.className = "msg " + sender;
+  msg.innerText = text;
+  chatMessages.appendChild(msg);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function botReply(input){
+  input = input.toLowerCase();
+
+  if(input.includes("paris")) return "El Acuerdo de París busca limitar el calentamiento global a menos de 2°C 🌍";
+  if(input.includes("kioto")) return "El Protocolo de Kioto fue el primer acuerdo para reducir gases de efecto invernadero.";
+  if(input.includes("ozono")) return "El agujero de la capa de ozono fue detectado en los años 70.";
+  if(input.includes("rio")) return "La Cumbre de Río 1992 fue clave para la agenda ambiental mundial.";
+  if(input.includes("megafauna")) return "La megafauna se extinguió en gran parte por cambios climáticos y actividad humana.";
+  
+  return "Interesante pregunta 🤔. Este proyecto trata sobre la historia ambiental. Prueba preguntar sobre París, Kioto, Río o la capa de ozono.";
+}
+
+function sendMessage(){
+  const input = document.getElementById("chatInput");
+  const text = input.value.trim();
+  if(text === "") return;
+
+  addMessage(text, "user");
+  setTimeout(() => addMessage(botReply(text), "bot"), 500);
+  input.value = "";
+}
+</script>
+
+</body>
+</html>
